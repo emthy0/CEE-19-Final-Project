@@ -69,7 +69,7 @@ let httpRequest = function (method, url, { headers, body, options } = {}) {
     xhr.onabort = function () {
       reject(new HttpError(xhr));
     };
-  });@
+  });
 };
 
 let axios = {
