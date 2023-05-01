@@ -1,0 +1,102 @@
+/* Calendar styles */
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th {
+  background-color: #f6ad55;
+  border: 1px solid #ed8936;
+  color: #fff;
+  font-size: 1.2rem;
+  font-weight: 700;
+  height: 3rem;
+  text-align: center;
+}
+
+td {
+  border: 1px solid #e2e8f0;
+  height: 4rem;
+  text-align: center;
+  vertical-align: middle;
+}
+
+td.today {
+  background-color: #f6e05e;
+}
+
+#calendarBody td:hover {
+  background-color: #edf2f7;
+  cursor: pointer;
+}
+
+/* Details section styles */
+.details {
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  height: 100%;
+  justify-content: flex-end;
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 100%;
+  z-index: 9999;
+}
+
+.details-content {
+  background-color: #fff;
+  border: 1px solid #e2e8f0;
+  border-radius: 0.5rem;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+  margin: 0 1rem 1rem 1rem;
+  max-height: 80%;
+  overflow-y: auto;
+  padding: 1rem;
+  width: 50%;
+}
+
+.details-date {
+  color: #ed8936;
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+/* Responsive styles */
+@media (max-width: 640px) {
+  td {
+    font-size: 0.8rem;
+    height: 3rem;
+  }
+
+  th {
+    font-size: 1rem;
+    height: 2.5rem;
+  }
+
+  .details-content {
+    max-height: 70%;
+    width: 80%;
+  }
+}
+
+@media (max-width: 480px) {
+  td {
+    font-size: 0.6rem;
+    height: 2.5rem;
+  }
+
+  th {
+    font-size: 0.8rem;
+    height: 2rem;
+  }
+
+  .details-date {
+    font-size: 1rem;
+  }
+
+  .details-content {
+    max-height: 60%;
+    width: 90%;
+  }
+}

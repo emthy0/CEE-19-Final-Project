@@ -1,0 +1,47 @@
+<html>
+  <head>
+    <link rel="stylesheet" href="css/gpt.css" />
+    <link rel="stylesheet" href="css/tailwooooooo.css" />
+  </head>
+  <body>
+    <div id="app" class="container mx-auto my-4">
+      <div class="calendar border rounded-lg shadow-lg p-4">
+        <div class="flex justify-between items-center mb-4">
+          <button
+            id="prevBtn"
+            class="px-2 py-1 rounded-md bg-gray-200 hover:bg-gray-300"
+          >
+            &lt;
+          </button>
+          <h2 id="monthYear" class="text-lg font-semibold"></h2>
+          <button
+            id="nextBtn"
+            class="px-2 py-1 rounded-md bg-gray-200 hover:bg-gray-300"
+          >
+            &gt;
+          </button>
+        </div>
+        <table class="border-collapse w-full">
+          <thead>
+            <tr>
+              <th class="py-2 text-center text-gray-600">Sun</th>
+              <th class="py-2 text-center text-gray-600">Mon</th>
+              <th class="py-2 text-center text-gray-600">Tue</th>
+              <th class="py-2 text-center text-gray-600">Wed</th>
+              <th class="py-2 text-center text-gray-600">Thu</th>
+              <th class="py-2 text-center text-gray-600">Fri</th>
+              <th class="py-2 text-center text-gray-600">Sat</th>
+            </tr>
+          </thead>
+          <tbody id="calendarBody"></tbody>
+        </table>
+      </div>
+      <div class="details border rounded-lg shadow-lg p-4 hidden">
+        <h2 id="detailsDate" class="text-lg font-semibold mb-2"></h2>
+        <p id="detailsContent"></p>
+      </div>
+    </div>
+
+    <script type="text/javascript" src="js/gpt.js"></script>
+  </body>
+</html>
