@@ -1,0 +1,30 @@
+name: Build and Deploy to EC2
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - "develop"
+
+jobs:
+  setup-build-publish-deploy:
+    name: Setup, Build, Publish, and Deploy
+    runs-on: ubuntu-latest
+    environment: production
+
+    permissions:
+      contents: 'read'
+      id-token: 'write'
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+        with:
+          ref: develop
+      - name: Deploy to Server 1
+        uses: easingthemes/ssh-deploy@v4.1.8
+        env:
+          SOURCE: "./frontend"
+          SSH_PRIVATE_KEY: ${{ secrets.EC2_SSH_KEY }}
+          REMOTE_HOST: ${{ secrets.HOST_DNS }}
+          REMOTE_USER: ${{ secrets.EC2_USERNAME }}
+          TARGET: ${{ secrets.TARGET_DIR }}
