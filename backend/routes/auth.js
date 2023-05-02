@@ -1,5 +1,12 @@
 import { Router } from "express"
+import { logoutHandler, authAppHandler, authAccessTokenHandler } from "../controllers/authController.js"
+import { sessionCheckMiddleware } from "../middlewares/session.js"
+const authRouter = new Router()
 
-const router = new Router()
+authRouter.get("/auth_app", authAppHandler)
+authRouter.get("/access_token", authAccessTokenHandler)
 
-router.get("/auth_app")
+authRouter.use(sessionCheckMiddleware)
+authRouter.get("/logout", logoutHandler)
+
+export default authRouter

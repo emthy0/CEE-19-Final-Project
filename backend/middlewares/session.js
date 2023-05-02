@@ -13,3 +13,11 @@ const sessionOptions = {
 export const sessionRegister = (app) => {
   app.use(session(sessionOptions))
 }
+
+export const sessionCheckMiddleware =  (req, res, next) => {
+  if (req.session.token) {
+    next()
+  } else {
+    res.status(401).send("Unauthorized")
+  } 
+}
