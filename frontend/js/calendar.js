@@ -56,7 +56,7 @@ const months = [
 //   },
 // ];
 
-const eventsArr = [];
+const eventsArr = []
 getEvents();
 console.log(eventsArr);
 
@@ -458,11 +458,32 @@ function saveEvents() {
 
 //function to get events from local storage
 function getEvents() {
+  
   //check if events are already saved in local storage then return event else nothing
-  if (localStorage.getItem("events") === null) {
-    return;
-  }
-  eventsArr.push(...JSON.parse(localStorage.getItem("events")));
+  if (!assignmentList) return
+  const groupedEvents = assignmentList.reduce((acc, assignment) => {
+    console.log(assignment)
+    const eventDate = new Date(assignment.duedate);
+    const dueTime = new Date(assignment.duetime * 1000)
+    if (!acc[assignment.duedate]) {
+      acc[assignment.duedate] = {     
+        day: eventDate.getDate(),
+        month: eventDate.getMonth() + 1,
+        year: eventDate.getFullYear(),
+        events: [] };
+    }
+    acc[assignment.duedate].events.push({
+      ...assignment,
+      dueTime: dueTime,
+      title: `${assignment.title} - ${assignment.courseName}`,
+      time: `${dueTime.getHours()} - ${dueTime.getMinutes()}`,
+    });
+    return acc;
+  }, {});
+  console.log(groupedEvents)
+  const groupedEventsArray = Object.values(groupedEvents);
+  
+  eventsArr.push(...groupedEventsArray);
 }
 
 function convertTime(time) {
