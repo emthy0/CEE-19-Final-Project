@@ -1,5 +1,5 @@
 console.log("Load calendar")
-export function renderCalendar () {const calendar = document.querySelector(".calendar"),
+export function renderCalendar (assignmentList) {const calendar = document.querySelector(".calendar"),
   date = document.querySelector(".date"),
   daysContainer = document.querySelector(".days"),
   prev = document.querySelector(".prev"),

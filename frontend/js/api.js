@@ -41,5 +41,6 @@ export const createCompEngEssAssignmentTable = async () => {
 
 export const getCourseAssignments = async () => {
   axios.get(`http://${backendIPAddress}/mcv/assignments`,).then((res) => {
-    console.log(res) 
+    console.log(res.json());
+    return res.json();
   });}

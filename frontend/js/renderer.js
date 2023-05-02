@@ -28,7 +28,7 @@ const renderLoginPage = () => {
 
 }
 
-const renderCalendarPage = () => {
+const renderCalendarPage = async () => {
     document.getElementsByTagName("body")[0].innerHTML = `    <div class="container">
     <div class="left">
       <div class="calendar">
@@ -103,8 +103,9 @@ const renderCalendarPage = () => {
     </p>
   </div>` + 
   `<link rel="stylesheet" href="css/calendar.css"></link>`;
-  renderCalendar()
-  getCourseAssignments()
+  const assignmentList = await getCourseAssignments()
+  renderCalendar(assignmentList)
+  
   
 }
 
