@@ -1,4 +1,4 @@
-import { axios } from "./xhr-wrapper.js"
+import { axios } from "./xhr-wrapper.js";
 
 const backendIPAddress = "127.0.0.1:3000";
 
@@ -9,14 +9,15 @@ export const getGroupNumber = () => {
 };
 
 // Example: Send Get user profile ("GET") request to backend server and show the response on the webpage
-export async function getUserProfile () {
+export async function getUserProfile() {
   const options = {
     method: "GET",
     credentials: "include",
   };
-  return await fetch(`http://${backendIPAddress}/mcv/profile`, options)
-    .then((response) => response.json())
-};
+  return await fetch(`http://${backendIPAddress}/mcv/profile`, options).then(
+    (response) => response.json()
+  );
+}
 
 // TODO #3.3: Send Get Courses ("GET") request to backend server and filter the response to get Comp Eng Ess CV_cid
 //            and display the result on the webpage
@@ -40,7 +41,16 @@ export const createCompEngEssAssignmentTable = async () => {
 };
 
 export const getCourseAssignments = async () => {
-  return axios.get(`http://${backendIPAddress}/mcv/assignments`,).then((res) => {
+  return axios.get(`http://${backendIPAddress}/mcv/assignments`).then((res) => {
     console.log(res.json());
     return res.json();
-  });}
+  });
+};
+
+export const updateCourseAssignments = async (assignmentList) => {
+  console.log(assignmentList);
+  return axios.put(`http://${backendIPAddress}/mcv/assignments`, {body: assignmentList}).then((res) => {
+    console.log(res.json());
+    return res.json();
+  });
+}; 

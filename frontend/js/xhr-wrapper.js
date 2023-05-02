@@ -55,7 +55,11 @@ let httpRequest = function (method, url, { headers, body, options } = {}) {
   if (options && options.hasOwnProperty("checkProgress")) {
     xhr.upload.onprogress = options.checkProgress;
   }
-  xhr.send(body);
+  // if (body) {
+  //   body = JSON.stringify(body);
+  //   console.log(body);
+  // }
+  xhr.send(JSON.stringify(body));
 
   return new Promise((resolve, reject) => {
     xhr.onload = function () {

@@ -1,3 +1,5 @@
+import { updateCourseAssignments } from "./api.js";
+
 console.log("Load calendar")
 export function renderCalendar (assignmentList) {const calendar = document.querySelector(".calendar"),
   date = document.querySelector(".date"),
@@ -419,6 +421,17 @@ addEventSubmit.addEventListener("click", () => {
   }
 });
 
+const apiUpdateAssignments = (assignments, newAssignment) => {
+  console.log("Updating assignments");
+  console.log(assignments);
+  const assignmentList = assignments.reduce((list, day) => {
+    list.push(...day.events)
+    return list
+  }, []);
+  assignmentList.push(newAssignment);
+  updateCourseAssignments(assignmentList)
+}
+
 //function to delete event when clicked on event
 eventsContainer.addEventListener("click", (e) => {
   if (e.target.classList.contains("event")) {
@@ -433,6 +446,10 @@ eventsContainer.addEventListener("click", (e) => {
           event.events.forEach((item, index) => {
             if (item.title === eventTitle) {
               event.events.splice(index, 1);
+              apiUpdateAssignments(eventsArr, {
+                ...item,
+                priority: 4,
+              })
             }
           });
           //if no events left in a day then remove that day from eventsArr

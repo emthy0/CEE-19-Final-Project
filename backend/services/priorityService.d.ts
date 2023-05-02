@@ -1,13 +1,14 @@
 import { Assignment } from "./mycourseVileCourseService";
 export enum AssignmentPriority {
+    DEFAULT = 0,
     HIGH = 1,
     MEDIUM = 2,
     LOW = 3,
-    DEFAULT = 4
+    DONE = 4
 }
 
 export interface AssignmentPriorityDoc {
-    assignment_id: string;
+    assignment_id: number;
     priority: AssignmentPriority;
 }
 
