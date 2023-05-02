@@ -46,14 +46,16 @@ export const getCourseAssignments = (access_token, cv_cid) => {
 
 
 export const getAllAssignments = async (access_token) => {
-    return getCourseList(access_token).then((courseList) => {
-      courseList.map((course) => {
-        new Promise((resolve, reject) => {
+    const promList = await getCourseList(access_token).then((courseList) => {
+      return courseList.map((course) => {
+        return new Promise((resolve, reject) => {
           getCourseAssignments(access_token, course.cv_cid)
             .then((assignments) => {
-              resolve(assignments.map((assignment) => {
+              
+              const modAss = assignments.map((assignment) => {
                 return {course, ...assignment}
-            }));
+              })
+              resolve(modAss);
             })
             .catch((err) => {
               reject(err);
@@ -61,5 +63,6 @@ export const getAllAssignments = async (access_token) => {
         });
       });
     });
+    return Promise.all(promList).then(res=> res.flat()).catch((err) => []);
   };
   
