@@ -1,5 +1,4 @@
 // TODO #4.0: Change this IP address to EC2 instance public IP address when you are going to deploy this web application
-import { getGroupNumber } from "./api.js";
 const backendIPAddress = "127.0.0.1:3000";
 
 const authorizeApplication = () => {
@@ -10,5 +9,4 @@ const authorizeApplication = () => {
 const logout = async () => {
   window.location.href = `http://${backendIPAddress}/auth/logout`;
 };
-
-document.getElementById("group-id").innerHTML = getGroupNumber();
+console.log("Auth loaded")

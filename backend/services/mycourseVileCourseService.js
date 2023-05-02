@@ -17,7 +17,7 @@ export const getProfileInformation = (access_token) => {
   return getCourseVileData(
     "https://www.mycourseville.com/api/v1/public/get/user/info",
     access_token
-  ).then((res) => res.data.data);
+  ).then((res) => res.data);
 };
 
 export const getCourseList = (access_token) => {
@@ -26,7 +26,7 @@ export const getCourseList = (access_token) => {
     access_token
   ).then((res) =>{
     if (res.data) {
-        return res.data.data.student
+        return res.data.student
     }
     throw new Error("Failed to fetch data");
   });
@@ -38,7 +38,7 @@ export const getCourseAssignments = (access_token, cv_cid) => {
     access_token
   ).then((res) =>{
     if (res.data) {
-        return res.data.data
+        return res.data
     }
     throw new Error("Failed to fetch data");
   });

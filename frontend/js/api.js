@@ -1,3 +1,5 @@
+import { axios } from "./xhr-wrapper.js"
+
 const backendIPAddress = "127.0.0.1:3000";
 
 // TODO #3.1: Change group number
@@ -36,3 +38,8 @@ export const createCompEngEssAssignmentTable = async () => {
     "This function should fetch 'get course assignments' route from backend server and show assignments in the table."
   );
 };
+
+export const getCourseAssignments = async () => {
+  axios.get(`http://${backendIPAddress}/mcv/assignments`,).then((res) => {
+    console.log(res) 
+  });}

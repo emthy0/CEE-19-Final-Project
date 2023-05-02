@@ -8,7 +8,7 @@ let HttpResponse = function (xhr) {
       let [name, value] = current.split(": ");
       result[name] = value;
       return result;
-    });
+    }, {});
   this.parser = new DOMParser();
 };
 
@@ -72,10 +72,10 @@ let httpRequest = function (method, url, { headers, body, options } = {}) {
   });
 };
 
-let axios = {
-    get: (arguments) => httpRequest("get", ...arguments),
-    post: (arguments) => httpRequest("post", ...arguments),
-    put: (arguments) => httpRequest("put", ...arguments),
-    delete: (arguments) => httpRequest("delete", ...arguments),
-    patch: (arguments) => httpRequest("patch", ...arguments),
+export const axios = {
+    get: (url, options) => httpRequest("get", url, options),
+    post: (url, options) => httpRequest("post", url, options),
+    put: (url, options) => httpRequest("put", url, options),
+    delete: (url, options) => httpRequest("delete",url, options),
+    patch: (url, options) => httpRequest("patch", url, options),
 }

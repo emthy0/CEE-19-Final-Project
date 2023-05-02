@@ -7,7 +7,7 @@ export const getAccessToken = (code) => {
     
     const postData = {
         grant_type: "authorization_code",
-        code: parsedQuery.code,
+        code: code,
         client_id: process.env.client_id,
         client_secret: process.env.client_secret,
         redirect_uri: redirect_uri,

@@ -5,7 +5,7 @@ import { DynamoDBDocumentClient, GetCommand, PutCommand, DeleteCommand  } from "
 const docClient = new DynamoDBClient({ regions: process.env.AWS_REGION })
 
 export const setAssignments = async (user_id, assignments) => {
-    await deleteAssignments(user_id).catch(err => console.error(err))
+    // await deleteAssignments(user_id).catch(err => console.error(err))
     const params = {
         TableName: process.env.assignmentPriorityTableName,
         Item: {
@@ -33,9 +33,9 @@ export const deleteAssignments = async (user_id) => {
 export const getAssignments = async (user_id) => {
     const params = {
       TableName: process.env.assignmentPriorityTableName,
-      Key: { "KEY_NAME": {
+      Key: {
         user_id
-      } },
+       },
     }
-    return await docClient.send(new GetCommand(params)).then(data => data.Item.assignments)
+    return await docClient.send(new GetCommand(params)).then(data => data.Item?.assignments ?? [])
 }
