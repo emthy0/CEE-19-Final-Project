@@ -8,7 +8,7 @@ module.exports = {
         autorestart: true,
         max_restarts: 50,
         watch: false,
-        max_memory_restart: '1.5G',
+        max_memory_restart: '1G',
         env: {
           PORT: 3000,
           JWT_SECRET: "rKJ@mBk%3c3c3Ibuk%hj@xKJtLq%F6wzLBsXVFJW)WnYb56n%)NSnRYFtSEG9Szz",
