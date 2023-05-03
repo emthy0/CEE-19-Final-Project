@@ -121,6 +121,7 @@ export function renderCalendar(assignmentList) {
       document.getElementById(`date-${year}-${month+1}-${activeDay}`)?.classList.add('active')
     }
     addListner();
+    hideLoading()
   }
 
   //function to add month and year on prev and next button
@@ -460,6 +461,7 @@ export function renderCalendar(assignmentList) {
     initCalendar(year,month);
     console.log(activeDay);
     getActiveDay(activeDay)
+    hideLoading()
   }
 
   function convertTime(time) {
