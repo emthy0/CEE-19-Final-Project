@@ -33,6 +33,7 @@ const renderLoginPage = () => {
     <script src="js/auth.js" defer></script>
     `  + 
     `<link rel="stylesheet" href="css/login.css"></link>`
+    hideLoading()
 
 }
 
@@ -113,6 +114,7 @@ const renderCalendarPage = async () => {
 
 
 const Renderer = () => {
+    showLoading();
     getUserProfile().then(()=>{
         renderCalendarPage();
     }).catch((error) => {

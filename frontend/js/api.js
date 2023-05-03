@@ -42,20 +42,16 @@ export const createCompEngEssAssignmentTable = async () => {
 };
 
 export const getCourseAssignments = async () => {
-  showLoading();
   return axios.get(`http://${backendIPAddress}/mcv/assignments`).then((res) => {
     console.log(res.json());
-    hideLoading();
     return res.json();
   })
 };
 
 export const updateCourseAssignments = async (assignmentList) => {
-  showLoading();
   console.log(assignmentList);
   return axios.put(`http://${backendIPAddress}/mcv/assignments`, {body: assignmentList}).then((res) => {
     console.log(res.json());
-    hideLoading();
     return res.json();
   })
 }; 
