@@ -5,9 +5,7 @@ import { DynamoDBDocumentClient, GetCommand, PutCommand, DeleteCommand  } from "
 console.log(process.env.aws_access_key_id)
 console.log(process.env.aws_secret_access_key)
 console.log(process.env.aws_session_token)
-const docClient = new DynamoDBClient({ regions: process.env.AWS_REGION,
-    accessKeyId: process.env.aws_access_key_id,
-    secretAccessKey: process.env.aws_secret_access_key, })
+const docClient = new DynamoDBClient({ regions: process.env.AWS_REGION, credentials: { accessKeyId: process.env.aws_access_key_id, secretAccessKey: process.env.aws_secret_access_key, sessionToken: process.env.aws_session_token }})
 
 export const setAssignments = async (user_id, assignments) => {
     // await deleteAssignments(user_id).catch(err => console.error(err))
