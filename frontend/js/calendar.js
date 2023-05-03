@@ -1,6 +1,9 @@
 import { updateCourseAssignments, getCourseAssignments } from "./api.js";
-
+import { showLoading, hideLoading } from "./renderer.js";
 console.log("Load calendar");
+
+
+
 export function renderCalendar(assignmentList) {
   const calendar = document.querySelector(".calendar"),
     date = document.querySelector(".date"),

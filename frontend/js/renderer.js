@@ -1,6 +1,22 @@
 import { getUserProfile , getCourseAssignments } from "./api.js";
 import { renderCalendar } from "./calendar.js";
 import "./api.js";
+
+export const showLoading = () => {
+  const overlayDom = document.createElement("div");
+  overlayDom.id = "loading";
+  overlayDom.classList.add("overlay");
+  overlayDom.innerHTML = `<div class="overlay__inner">
+  <div class="overlay__content">    <span class="spinner"></span></div>
+</div>`
+  document.getElementsByTagName("body")[0].appendChild(overlayDom);
+}
+
+export const hideLoading = () => {
+  const overlayDom = document.getElementById("loading");
+  overlayDom?.remove();
+}
+
 const renderLoginPage = () => {
         document.getElementsByTagName("body")[0].innerHTML = `<section>
         <header>

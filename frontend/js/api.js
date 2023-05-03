@@ -1,5 +1,5 @@
 import { axios } from "./xhr-wrapper.js";
-
+import { showLoading, hideLoading } from "./renderer.js";
 const backendIPAddress = "3.217.142.246/api/v1";
 
 // TODO #3.1: Change group number
@@ -41,16 +41,20 @@ export const createCompEngEssAssignmentTable = async () => {
 };
 
 export const getCourseAssignments = async () => {
+  showLoading();
   return axios.get(`http://${backendIPAddress}/mcv/assignments`).then((res) => {
     console.log(res.json());
+    hideLoading();
     return res.json();
   });
 };
 
 export const updateCourseAssignments = async (assignmentList) => {
+  showLoading();
   console.log(assignmentList);
   return axios.put(`http://${backendIPAddress}/mcv/assignments`, {body: assignmentList}).then((res) => {
     console.log(res.json());
+    hideLoading();
     return res.json();
   });
 }; 
