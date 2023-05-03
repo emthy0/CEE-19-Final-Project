@@ -3,11 +3,13 @@ import { renderCalendar } from "./calendar.js";
 import "./api.js";
 
 export const showLoading = () => {
+  console.log('show loading')
   document.getElementById('loading')?.classList.remove('hidden');
 }
 
 export const hideLoading = () => {
   document.getElementById('loading')?.classList.add('hidden');
+  console.log('hide loading')
   // const overlayDom = document.getElementById("loading");
   // overlayDom?.remove();
 }
