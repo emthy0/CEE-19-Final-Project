@@ -1,21 +1,22 @@
-import { getUserProfile , getCourseAssignments } from "./api.js";
-import { renderCalendar } from "./calendar.js";
-import "./api.js";
+import { getUserProfile, getCourseAssignments } from "./api.js"
+import { renderCalendar } from "./calendar.js"
+import "./api.js"
 
 export const showLoading = () => {
-  console.log('show loading')
-  document.getElementById('loading')?.classList.remove('hidden');
+  console.log("show loading")
+  document.getElementById("loading")?.classList.remove("hidden")
 }
 
 export const hideLoading = () => {
-  document.getElementById('loading')?.classList.add('hidden');
-  
+  document.getElementById("loading")?.classList.add("hidden")
+
   // const overlayDom = document.getElementById("loading");
   // overlayDom?.remove();
 }
 
 const renderLoginPage = () => {
-        document.getElementById("app").innerHTML = `<section>
+  document.getElementById("app").innerHTML =
+    `<section>
         <header>
             <h1 id="app-name">MyCourseville API Login Page Group 19</h1>
         </header>
@@ -33,15 +34,14 @@ const renderLoginPage = () => {
         &#169; 2110221 Computer Engineering Essentials (2022/2) &#169;
     </section>
     <script src="js/auth.js" defer></script>
-    `  + 
-    `<link rel="stylesheet" href="css/login.css"></link>`
-    console.log('hide loading')
-    hideLoading()
-
+    ` + `<link rel="stylesheet" href="css/login.css"></link>`
+  console.log("hide loading")
+  hideLoading()
 }
 
 const renderCalendarPage = async () => {
-  document.getElementById("app").innerHTML = `    <div class="container">
+  document.getElementById("app").innerHTML =
+    `    <div class="container">
     <div class="left">
       <div class="calendar">
         <div class="month">
@@ -107,23 +107,48 @@ const renderCalendarPage = async () => {
       <i class="fas fa-plus"></i>
     </button>
   </div>
-` + 
-  `<link rel="stylesheet" href="css/calendar.css"></link>`;
+` + `<link rel="stylesheet" href="css/calendar.css"></link>`
   const assignmentList = await getCourseAssignments()
+  // assignmentList.
+
   renderCalendar(assignmentList)
-  
-  
+  const reg = await navigator.serviceWorker.getRegistration()
+  Notification.requestPermission().then((permission) => {
+    if (permission !== "granted") {
+      return
+    } else {
+      assignmentList
+        .filter((assignment) => new Date(assignment.duedate) > new Date())
+        .forEach((assignment) => {
+          const duetime = new Date(assignment.duetime)
+          const trigTime = new Date(assignment.duetime)
+          trigTime.setHours(trigTime.getHours() - 4)
+          reg.showNotification("Assignment due soon", {
+            tag: assignment.itemid, // a unique ID
+            body: `Assignment: ${
+              assignment.title
+            } due at ${duetime.toDateString()}`, // content of the push notification
+            showTrigger: new TimestampTrigger(trigTime), // set the time for the push notification
+            data: {
+              url: `https://www.mycourseville.com/?q=courseville/worksheet/${assignment.course.cv_cid}/${assignment.itemid}`, // pass the current url to the notification
+            },
+          })
+        })
+    }
+  })
 }
 
-
 const Renderer = () => {
-    showLoading();
-    getUserProfile().then(()=>{
-        renderCalendarPage();
-    }).catch((error) => {
-      console.error(error);
-        renderLoginPage();
+  showLoading()
+  getUserProfile()
+    .then(() => {
+      renderCalendarPage()
     })
-};
+    .catch((error) => {
+      console.error(error)
+      renderLoginPage()
+    })
+}
 
 Renderer()
+

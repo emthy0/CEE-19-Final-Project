@@ -1,26 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
     <script src="js/auth.js" defer></script>
     <script type="module" src="js/xhr-wrapper.js" defer></script>
     <script type="module" src="js/api.js" defer></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="css/tailwooooooo.css">
-    
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body >
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="css/tailwooooooo.css" />
 
-    <div style="width: 100%; height: 100%;" id="app"></div>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      if ("serviceWorker" in navigator) {
+        navigator.serviceWorker.register("js/notif-worker.js")
+      }
+    </script>
+  </head>
+  <body>
+    <div style="width: 100%; height: 100%" id="app"></div>
     <div id="loading" class="overlay hidden">
-        <div class="overlay__inner">
-            <div class="overlay__content">    <span class="spinner"></span></div>
-        </div>
+      <div class="overlay__inner">
+        <div class="overlay__content"><span class="spinner"></span></div>
+      </div>
     </div>
 
     <script type="module" src="js/renderer.js"></script>
-</body>
+  </body>
 </html>
+
