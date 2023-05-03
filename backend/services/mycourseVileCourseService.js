@@ -22,7 +22,7 @@ export const getProfileInformation = (access_token) => {
 
 export const getCourseList = (access_token) => {
   return getCourseVileData(
-    "https://www.mycourseville.com/api/v1/public/get/user/courses",
+    "https://www.mycourseville.com/api/v1/public/get/user/courses?detail=1",
     access_token
   ).then((res) =>{
     if (res.data) {
