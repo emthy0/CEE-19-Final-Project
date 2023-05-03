@@ -1,6 +1,6 @@
 import { axios } from "./xhr-wrapper.js";
 
-const backendIPAddress = "3.217.142.246/api/v1";
+const backendIPAddress = "3.217.142.246:3000/api/v1";
 
 // TODO #3.1: Change group number
 
