@@ -2,6 +2,9 @@ import { v4 as uuidv4 } from 'uuid';
 import { DynamoDBClient } from "@aws-sdk/client-dynamodb"
 import { DynamoDBDocumentClient, GetCommand, PutCommand, DeleteCommand  } from "@aws-sdk/lib-dynamodb"
 
+console.log(process.env.aws_access_key_id)
+console.log(process.env.aws_secret_access_key)
+console.log(process.env.aws_session_token)
 const docClient = new DynamoDBClient({ regions: process.env.AWS_REGION,
     accessKeyId: process.env.aws_access_key_id,
     secretAccessKey: process.env.aws_secret_access_key, })
