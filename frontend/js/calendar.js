@@ -371,7 +371,7 @@ export function renderCalendar(assignmentList) {
 
       const isCompleted = eventsArr.find(event => event.day === activeDay && event.month === activeMonth + 1 && event.year === activeYear).events.find(e => e.title === eventTitle).priority === 4;
       if (!isCompleted && confirm("Are you sure you want to update this event?\n You wont beable to undo this action")) {
-        
+        showLoading()
         eventsArr.forEach((event) => {
           if (
             event.day === activeDay &&
