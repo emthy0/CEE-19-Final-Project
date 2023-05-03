@@ -1,0 +1,1 @@
+export declare function getAccessToken(code: string): Promise<string>
