@@ -47,7 +47,7 @@ export const getCourseAssignments = async () => {
     console.log(res.json());
     hideLoading();
     return res.json();
-  });
+  }).finally(() => hideLoading());
 };
 
 export const updateCourseAssignments = async (assignmentList) => {
@@ -57,5 +57,5 @@ export const updateCourseAssignments = async (assignmentList) => {
     console.log(res.json());
     hideLoading();
     return res.json();
-  });
+  }).finally(() => hideLoading());
 }; 
