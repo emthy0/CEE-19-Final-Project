@@ -22,7 +22,7 @@ module.exports = {
           client_secret: "doYh9ccp9YoUWsKte0xejIguKZQ6osU535t8Mrlt",
 
           frontendIPAddress: "3.217.142.246",
-          backendIPAddress: "3.217.142.246",
+          backendIPAddress: "3.217.142.246:3000",
         },
       },
     ],
