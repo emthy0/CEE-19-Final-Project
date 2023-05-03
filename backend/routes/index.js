@@ -1,3 +1,4 @@
+import { Router } from "express"
 import { default as authRouter } from "./auth.js"
 import { default as mcvRouter } from "./mcv.js"
 import { authAccessTokenHandler } from "../controllers/authController.js"
