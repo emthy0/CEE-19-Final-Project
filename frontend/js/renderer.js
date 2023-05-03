@@ -4,7 +4,7 @@ import "./api.js";
 const renderLoginPage = () => {
         document.getElementsByTagName("body")[0].innerHTML = `<section>
         <header>
-            <h1 id="app-name">MyCourseville API Login Page Group <span id="group-id"></span></h1>
+            <h1 id="app-name">MyCourseville API Login Page Group 19</h1>
         </header>
     </section>
     <section>
@@ -15,9 +15,6 @@ const renderLoginPage = () => {
     </section>
     <section class="section-center">
         <button class="button login-button" onclick=authorizeApplication()>Login</button>
-    </section>
-    <section class="section-center">
-        <button class="button change-page-button" onclick="window.location.href='index.html'">Go to รายการฝากซื้อ</button>
     </section>
     <section class="section-credit">
         &#169; 2110221 Computer Engineering Essentials (2022/2) &#169;
@@ -95,13 +92,7 @@ const renderCalendarPage = async () => {
       <i class="fas fa-plus"></i>
     </button>
   </div>
-
-  <div class="credits">
-<p>
-      Watch Tutorial on Youtube
-      <a href="https://youtu.be/6EVgmpm4z5U" target="_blank">Open Source Coding</a>
-    </p>
-  </div>` + 
+` + 
   `<link rel="stylesheet" href="css/calendar.css"></link>`;
   const assignmentList = await getCourseAssignments()
   renderCalendar(assignmentList)
