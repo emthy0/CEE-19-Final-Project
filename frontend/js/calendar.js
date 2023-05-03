@@ -122,6 +122,7 @@ export function renderCalendar(assignmentList) {
     }
     addListner();
     hideLoading()
+    console.log('hide loading')
   }
 
   //function to add month and year on prev and next button
@@ -461,6 +462,7 @@ export function renderCalendar(assignmentList) {
     initCalendar(year,month);
     console.log(activeDay);
     getActiveDay(activeDay)
+    console.log('hide loading')
     hideLoading()
   }
 

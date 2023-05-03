@@ -9,7 +9,7 @@ export const showLoading = () => {
 
 export const hideLoading = () => {
   document.getElementById('loading')?.classList.add('hidden');
-  console.log('hide loading')
+  
   // const overlayDom = document.getElementById("loading");
   // overlayDom?.remove();
 }
@@ -35,6 +35,7 @@ const renderLoginPage = () => {
     <script src="js/auth.js" defer></script>
     `  + 
     `<link rel="stylesheet" href="css/login.css"></link>`
+    console.log('hide loading')
     hideLoading()
 
 }
