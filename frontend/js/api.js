@@ -14,6 +14,7 @@ export async function getUserProfile() {
     method: "GET",
     credentials: "include",
   };
+  const backendIPAddress = "3.217.142.246/api/v1";
   return await fetch(`http://${backendIPAddress}/mcv/profile`, options).then(
     (response) => response.json()
   );
