@@ -2,7 +2,9 @@ import { v4 as uuidv4 } from 'uuid';
 import { DynamoDBClient } from "@aws-sdk/client-dynamodb"
 import { DynamoDBDocumentClient, GetCommand, PutCommand, DeleteCommand  } from "@aws-sdk/lib-dynamodb"
 
-const docClient = new DynamoDBClient({ regions: process.env.AWS_REGION })
+const docClient = new DynamoDBClient({ regions: process.env.AWS_REGION,
+    accessKeyId: process.env.aws_access_key_id,
+    secretAccessKey: process.env.aws_secret_access_key, })
 
 export const setAssignments = async (user_id, assignments) => {
     // await deleteAssignments(user_id).catch(err => console.error(err))
