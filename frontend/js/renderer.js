@@ -3,22 +3,17 @@ import { renderCalendar } from "./calendar.js";
 import "./api.js";
 
 export const showLoading = () => {
-  const overlayDom = document.createElement("div");
-  overlayDom.id = "loading";
-  overlayDom.classList.add("overlay");
-  overlayDom.innerHTML = `<div class="overlay__inner">
-  <div class="overlay__content">    <span class="spinner"></span></div>
-</div>`
-  document.getElementsByTagName("body")[0].appendChild(overlayDom);
+  document.getElementById('loading')?.classList.remove('hidden');
 }
 
 export const hideLoading = () => {
-  const overlayDom = document.getElementById("loading");
-  overlayDom?.remove();
+  document.getElementById('loading')?.classList.add('hidden');
+  // const overlayDom = document.getElementById("loading");
+  // overlayDom?.remove();
 }
 
 const renderLoginPage = () => {
-        document.getElementsByTagName("body")[0].innerHTML = `<section>
+        document.getElementById("app").innerHTML = `<section>
         <header>
             <h1 id="app-name">MyCourseville API Login Page Group 19</h1>
         </header>
@@ -42,7 +37,7 @@ const renderLoginPage = () => {
 }
 
 const renderCalendarPage = async () => {
-    document.getElementsByTagName("body")[0].innerHTML = `    <div class="container">
+  document.getElementById("app").innerHTML = `    <div class="container">
     <div class="left">
       <div class="calendar">
         <div class="month">
