@@ -18,7 +18,7 @@ module.exports = {
           aws_secret_access_key: "UWXYtbBSrzI4G7YKswcPs2dcfqaOViC23VxQ",
           aws_session_token: "FwoGZXIvYXdzEND//////////wEaDAlBf7ngw/PYwopbziLLAUB9fqneHA8j/b9aEG/08DcUw3iwjanD3a0vDqEogHyCzAtoxxRwZ8jIU178HY06NGwKhuWV79p1013FksIcFSwSNEgpQf1sOWzLmNeMOW+/ujQ8GeY2c2kbHQXctZQHF7yj+BH6wzcNpogRhFsZcQkH/I3Rhdn/IYpgqUU0cVrturK2t3ZL93llSyoKOhneB2+qdhngWJtohV1Kne7pGHpe8F2N5WlxZpzQW+5PvYraOA5CSzmVCAbj537PCtI55GIEN62eXDg+IL7LKOeqxqIGMi0V7yy7K2wJqX/OPPhOGY2QVN0xQSIFm7qC+haldT2rRHW1nGeyRvozsio+tjk=",
 
-          cliend_id: "VKz2z7bQjburvYXnzVYvmhpbafeO3vMwLTUy6NIg",
+          client_id: "VKz2z7bQjburvYXnzVYvmhpbafeO3vMwLTUy6NIg",
           client_secret: "doYh9ccp9YoUWsKte0xejIguKZQ6osU535t8Mrlt",
 
           frontendIPAddress: "3.217.142.246",
